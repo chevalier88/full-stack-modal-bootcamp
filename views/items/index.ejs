@@ -11,8 +11,8 @@
       <p>
         <%= item.id %> : <%= item.name %>;
         <br />
-        <button> Show/Hide Description </button>
-        <div class = "hide">
+        <button id = "btn-<%= item.id %>"> Show/Hide Description </button>
+        <div class = "hide" id = "div-<%= item.id %>">
           <div class="modal">
             description: <%= item.description %>
           </div>

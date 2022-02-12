@@ -1,16 +1,23 @@
 console.log('hi from script.js');
 
-const changeBgColour = (div) => {
-  if (div.classList.contains('grey-bg')) {
-    div.classList.remove('grey-bg');
+const showHideDescription = (btnId) => {
+  // change id to "div-xx"
+  // we are slicing to get the characters after the
+  const divId = `div-${btnId.slice(4)}`;
+  console.log(divId);
+  const divToHide = document.querySelector(`#${divId}`);
+
+  if (divToHide.classList.contains('hide')) {
+    divToHide.classList.remove('hide');
   } else {
-    div.classList.add('grey-bg');
+    divToHide.classList.add('hide');
   }
 };
 
-const divArray = document.querySelectorAll('div');
-divArray.forEach((div) => {
-  div.addEventListener('click', (event) => {
-    changeBgColour(event.currentTarget);
+const btnArray = document.querySelectorAll('button');
+btnArray.forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    console.log(event.currentTarget.id);
+    showHideDescription(event.currentTarget.id); // id is "btn-xx"
   });
 });
